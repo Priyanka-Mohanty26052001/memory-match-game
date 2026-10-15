@@ -1,0 +1,286 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #563d54;
+  font-family: "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.game-page {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 10% 15%, #ffe1ec 0, transparent 28%),
+    radial-gradient(circle at 90% 80%, #e6e0ff 0, transparent 30%),
+    #fff8f5;
+}
+
+.topbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  color: #714f75;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand-icon {
+  color: #ee80a7;
+  font-size: 30px;
+}
+
+.level-badge {
+  background: #fce6ef;
+  color: #bc6689;
+  border-radius: 20px;
+  padding: 9px 15px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 48px auto 0;
+  text-align: center;
+}
+
+.intro .eyebrow {
+  color: #c17ba0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.intro h1 {
+  margin: 12px 0;
+  color: #684d70;
+  font-size: clamp(32px, 6vw, 48px);
+  letter-spacing: -1.5px;
+}
+
+.intro h1 span {
+  color: #e887aa;
+}
+
+.intro p {
+  color: #a08b9e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 30px 0 22px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 8px;
+  background: #ffffffc9;
+  border: 1px solid #f5e5ed;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px #967b8910;
+}
+
+.stat-icon {
+  font-size: 23px;
+}
+
+.stat-card div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.stat-card small {
+  color: #ad93a9;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.stat-card strong {
+  color: #705474;
+  font-size: 19px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px;
+  background: #ffffffb8;
+  border: 1px solid #f5e5ed;
+  border-radius: 24px;
+  box-shadow: 0 15px 45px #8b668817;
+}
+
+.game-card {
+  aspect-ratio: 1;
+  position: relative;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #eacaf7, #d9c8fa);
+  box-shadow: 0 4px 0 #c7b2e5;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.game-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(22px, 5vw, 38px);
+  transition: opacity 150ms ease, transform 180ms ease;
+}
+
+.card-back {
+  color: #fff;
+  font-size: clamp(25px, 5vw, 36px);
+}
+
+.card-front {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.game-card.flipped {
+  background: #fff0f5;
+  box-shadow: 0 4px 0 #f0d2df;
+}
+
+.game-card.flipped .card-back {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.game-card.flipped .card-front {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.game-card.matched {
+  background: #e5f6e9;
+  box-shadow: 0 4px 0 #c6e7ce;
+  cursor: default;
+}
+
+.restart-button {
+  margin-top: 25px;
+  padding: 14px 27px;
+  border: 0;
+  border-radius: 30px;
+  background: linear-gradient(100deg, #ef9cbb, #d7a9ee);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 6px 15px #d88dbb40;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.restart-button:hover {
+  transform: translateY(-2px);
+}
+
+.restart-button span {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.win-message {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff0f5;
+  border-radius: 20px;
+}
+
+.win-message > span {
+  font-size: 30px;
+}
+
+.win-message h2 {
+  color: #bc6689;
+}
+
+.win-message p,
+.footer-note {
+  color: #a08b9e;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer-note {
+  margin-top: 28px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+  .game-page {
+    padding: 18px 12px;
+  }
+
+  .game-container {
+    margin-top: 35px;
+  }
+
+  .stats {
+    gap: 7px;
+  }
+
+  .stat-card {
+    gap: 5px;
+    padding: 12px 4px;
+  }
+
+  .stat-icon {
+    font-size: 18px;
+  }
+
+  .stat-card strong {
+    font-size: 16px;
+  }
+
+  .game-board {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .game-card {
+    border-radius: 12px;
+  }
+  .copyright {
+  margin-top: 18px;
+  color: #a08b9e;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.copyright::selection {
+  background: #fce1ed;
+}
+}
